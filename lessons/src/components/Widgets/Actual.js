@@ -3,6 +3,7 @@ import "../../styles/components/Widgets/Actual.css"
 import ActualDetails from "./ActualDetails"
 import SettingsIcon from '@mui/icons-material/Settings';
 import Search from "./Search";
+import actualElements from "../../Arrays/actualElements";
 
 function Actual() {
     return(
@@ -14,14 +15,20 @@ function Actual() {
                     <h2> Вам может понравится </h2>
                     <SettingsIcon className="actual__settings"/>
                 </div>
-
-                <ActualDetails tag="КоронаСпасетМир!" trend="в России" views="1,343,433 Твитов"/>
-                <ActualDetails tag="ХочуСпать" trend="в России" views="1,343,853 Твитов"/>
-                <ActualDetails tag="СвадьбаКиркорова" trend="в России" views="9,455,433 Твитов"/>
+                {actualElements.map((item, index) => {
+                    return(
+                        <ActualDetails trend={item.trend}
+                                       tag={item.tag}
+                                       views={item.views}
+                                       key={index}
+                        />
+                    )
+                })}
 
                 <p> Показать еще</p>
 
             </div>
+
         </div>
     )
 }

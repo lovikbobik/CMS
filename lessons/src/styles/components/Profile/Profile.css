@@ -19,6 +19,21 @@
     margin-top: 15px;
 }
 
+.profile__link{
+    text-decoration: none;
+    color: gray;
+}
+
+.profile__link:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.profile__link:visited{
+    text-decoration: none;
+    color: gray;
+}
+
 .profile__avatar{
     position: absolute !important;
     left: 10px;
@@ -149,5 +164,43 @@
 
 .profile__black{
     color: black;
+}
 
+.tabs__header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.tabs__nav {
+    color: #1f1f1f;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+.tabs__nav:hover {
+    color: var(--twitter-color) !important;
+    border-radius: 50px;
+    transition: background-color 200ms ease-out;
+}
+
+.profile__explore{
+    padding: 10px;
+}
+
+.profile__widget{
+    padding: 10px;
+}
+
+.profile__widgetMore{
+    text-decoration: none;
+    color: var(--twitter-color);
+    padding: 15px;
+}
+
+.profile__widgetMore:visited{
+    text-decoration: none;
+    color: var(--twitter-color);
 }

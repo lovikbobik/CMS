@@ -12,7 +12,7 @@ function Tweet(){
         <div className="tweet">
             <form>
                 <div className="tweet__input">
-                    <Avatar src="https://cs16planet.ru/steam-avatars/images/avatar3219.jpg" />
+                    <Avatar src="https://i.ytimg.com/vi/IuBbnJr2RTY/maxresdefault.jpg" />
                     <input placeholder="Что происходит?" type="text"/>
                 </div>
                 <div className="tweet__icons">

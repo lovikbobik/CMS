@@ -13,9 +13,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 9px;
+    font-size: 13px;
     margin-left: 10px;
 }
+
+.actual__header > h2{
+    font-weight: 800;
+}
+
 
 .actual__settings{
     position: relative;
@@ -43,4 +48,3 @@
     background-color: #e6e6e6;
     transition: background-color 200ms ease-out;
 }
-

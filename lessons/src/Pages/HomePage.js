@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 function HomePage() {
     return (
         <div>
-            <Layout>
+            <Layout active={true}>
                 <Main/>
             </Layout>
         </div>

@@ -8,7 +8,7 @@ function ActualDetails({tag, trend, views}){
             <div className="actualDetails__recommends">
             <p className="actualDetails__txt">{trend}</p>
             <h3 className="actualDetails__tag">#{tag}</h3>
-            <p className="actualDetails__txt">{views}</p>
+            <p className="actualDetails__txt">{views} Твитов</p>
             </div>
             <MoreHorizIcon className="actualDetails__more"/>
         </div>

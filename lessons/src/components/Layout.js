@@ -1,16 +1,16 @@
 import React from "react";
 import "../App.css"
 import Sidebar from "./Sidebar/Sidebar";
-import Actual from "./Widgets/Actual";
 import "../styles/components/Layout.css"
+import Widgets from "../components/Widgets/Widgets"
 
-function Layout({children}) {
+function Layout({children, active}) {
     return (
         <>
             <div className="app">
                 <Sidebar/>
                 <main className="layout">{children}</main>
-                <Actual/>
+                <Widgets actualOn={active}/>
             </div>
         </>
     );

@@ -1,16 +1,15 @@
 import React from "react";
-// import "./ProfilePage.css";
 import User from "../components/Profile/User";
 import Layout from "../components/Layout";
 
-function ProfilePage() {
+function UserProfilePage() {
     return (
         <div className="app">
-            <Layout>
+            <Layout active={true}>
                 <User/>
             </Layout>
         </div>
     );
 }
 
-export default ProfilePage;
+export default UserProfilePage;

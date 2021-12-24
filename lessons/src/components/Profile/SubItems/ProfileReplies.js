@@ -1,25 +1,19 @@
 import React from "react";
-import '../../styles/components/Main/Main.css';
-import Tweet from './Tweet.js';
-import Post from "../Post/Post";
-import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
-import mainPostElements from "../../Arrays/mainPostElements";
+import Post from "../../Post/Post";
+import mainPostElements from "../../../Arrays/mainPostElements";
 
-function Main() {
+
+function ProfileReplies() {
     return (
-            <div className="main">
-                <div className="main__header">
-                    <h2>Главная </h2>
-                    <AutoAwesomeOutlinedIcon className="main__auto"/>
-                </div>
-                <Tweet/>
-                {mainPostElements.map((item, index) => {
+        <div>
+            {mainPostElements.map((item, index) => {
+                if (item.username === "lovikbobik" || item.username === "Pupkin") {
                     return (
                         <Post
                             name={item.name}
+                            username={item.username}
                             avatar={item.avatar}
                             verified={item.verified && true}
-                            username={item.username}
                             date={item.date}
                             text={item.text}
                             image={item.image}
@@ -31,9 +25,10 @@ function Main() {
                             key={index}
                         />
                     )
-                })}
-            </div>
+                }
+            })}
+        </div>
     )
 }
 
-export default Main;
+export default ProfileReplies;

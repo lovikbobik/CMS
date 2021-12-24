@@ -7,15 +7,21 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import {Button} from "@material-ui/core";
 
 function Post({
-                  name,
-                  date,
-                  username,
-                  verified,
-                  text,
+                  name="name",
+                  date="Сегодня",
+                  username="username",
+                  verified = false,
+                  text = "text",
                   image,
-                  avatar
+                  avatar = "http://mobimg.b-cdn.net/v3/fetch/9c/9c3ebecbba3c498f843d6111fc5d452a.jpeg",
+                  likeCount=0,
+                  commentCount=0,
+                  shareCount=0,
+                  retweetCount=0,
+                isLiked = false
               }) {
     return (
         <div className="post">
@@ -27,7 +33,7 @@ function Post({
                     <div className="post__headerText">
                         <h3>
                             <span className="post__headerSpecial">
-                                {name}
+                                {name}{"  "}
                                 {verified && <VerifiedIcon className="post__badge" fontSize="small"/>}
                                 <span className="post__color">
                                 @{username + " "}
@@ -50,10 +56,24 @@ function Post({
                     alt=""
                 />
                 <div className="post__footer">
-                    <ChatBubbleOutlineIcon className="post__chat"/>
-                    <RepeatIcon className="post__repeat" />
-                    <FavoriteBorderIcon className="post__favourite"/>
-                    <PublishIcon className="post__chat" />
+                        <Button variant="text" size="small" className="post__chat">
+                            <ChatBubbleOutlineIcon fontSize="small" />
+                            <h4>{commentCount}</h4>
+                        </Button>
+
+                        <Button variant="text" size="small" className="post__repeat">
+                            <RepeatIcon fontsize="small" />
+                            <h4>{retweetCount}</h4>
+                        </Button>
+                        <Button variant="text" size="small" className="post__favourite">
+                            <FavoriteBorderIcon fontsize="small" className={isLiked ? "post__red" : "post__default"}/>
+                            <h4 className={isLiked ? "post__red" : "post__default"}>{likeCount}</h4>
+                        </Button>
+
+                        <Button variant="text" size="small" className="post__chat">
+                            <PublishIcon fontsize="small" />
+                            <h4>{shareCount}</h4>
+                        </Button>
                 </div>
             </div>
         </div>

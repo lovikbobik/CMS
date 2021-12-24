@@ -1,6 +1,6 @@
 .sidebar {
     border-right: 1px solid #e6e6e6;
-    flex: 0.1;
+    flex: 0.2;
     padding-left: 10px;
     padding-right: 10px;
     min-width: 200px;
@@ -39,19 +39,23 @@
     border: none;
     color: black;
     border-radius: 50px;
-    margin-top: 20px;
-    min-width: 200px;
+    margin-top: 10px;
+    min-width: 235px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .modal__button:hover{
     background-color: #e6e6e6;
 }
 
-.modal__button > h4{
+.modal__card > h4{
     margin-bottom: 0;
 }
 
-.modal__button > p{
+.modal__card > p{
     margin-top: 0;
 }
 
@@ -63,8 +67,8 @@
     display: flex;
     flex-direction: column !important;
     position: relative;
-    top: 200px;
-    right: 545px;
+    top: 190px;
+    right: 520px;
 }
 
 .modal__user{

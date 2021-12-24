@@ -8,6 +8,9 @@
     background-color: #e6e6e6;
     border-radius: 50px;
     transition: background-color 200ms ease-out;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
 }
 
 
@@ -23,4 +26,8 @@
 
 .sidebarOption > p{
     color: var(--twitter-color);;
+}
+
+.active {
+    color: var(--twitter-color);
 }

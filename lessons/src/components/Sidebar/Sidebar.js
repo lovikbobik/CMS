@@ -14,6 +14,7 @@ import { Button } from "@mui/material";
 import '../../styles/components/Sidebar/Sidebar.css';
 import {NavLink} from "react-router-dom";
 import { useModal } from 'react-hooks-use-modal';
+import {Avatar} from "@material-ui/core";
 
 function Sidebar() {
     const [Modal, open, close, isOpen] = useModal('root', {
@@ -28,8 +29,14 @@ function Sidebar() {
             <SidebarOption Icon={HomeRoundedIcon} text="Главная"/>
             </NavLink>
 
+            <NavLink to={"/explore"} className="sidebar__nav">
             <SidebarOption Icon={TagRoundedIcon} text="Исследовать"/>
+            </NavLink>
+
+            <NavLink to={"/notifications"} className="sidebar__nav">
             <SidebarOption Icon={NotificationsNoneRoundedIcon} text="Уведомления"/>
+            </NavLink>
+
             <SidebarOption Icon={MailOutlineIcon} text="Сообщения"/>
             <SidebarOption Icon={BookmarkBorderIcon} text="Закладки"/>
             <SidebarOption Icon={ListAltIcon} text="Списки"/>
@@ -45,8 +52,12 @@ function Sidebar() {
             </Button>
             <div className="modal">
                 <button onClick={open} className="modal__button">
-                    <h4>Афанасьева Светлана</h4>
+                    <Avatar src={"https://anime-fans.ru/wp-content/uploads/2021/05/Samye-krasivye-fotki-anime-kartinki_22.jpg"}/>
+                    <div className="modal__card">
+                    <h4>Светка</h4>
                     <p>@lovikbobik</p>
+                    </div>
+                    <MoreHorizIcon/>
                 </button>
                 <Modal>
                     <div className="modal__content">
