@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const config = require('config')
 const jwt = require('jsonwebtoken')
 
-const Customer = require('../Models/Customer')
+const Customer = require('../models/Customer')
 const authRouter = Router()
 
 
@@ -49,7 +49,8 @@ authRouter.post('/login', [
                 return res.status(400).json({
                     errors: errors.array(),
                     message: 'Некорректный данные'
-                })}
+                })
+            }
 
             const {email, password} = req.body
             const customer = await Customer.findOne({email})
@@ -75,10 +76,10 @@ authRouter.post('/login', [
     }
 )
 
-authRouter.post("/:id", async (req, res) => {
+authRouter.get("/:id", async (req, res) => {
     try {
-        const user = await Customer.findOne({_id: req.params.id});
-        res.json(user.name)
+        const user = await Customer.findOne({_id: req.params.id}).populate('posts');
+        res.json(user)
     } catch (error) {
         res.status(400).json({
             message: error.message

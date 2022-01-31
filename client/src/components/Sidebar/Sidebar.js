@@ -10,10 +10,10 @@ import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import { Button } from "@mui/material";
+import {Button} from "@mui/material";
 import '../../styles/components/Sidebar/Sidebar.css';
 import {NavLink, useNavigate} from "react-router-dom";
-import { useModal } from 'react-hooks-use-modal';
+import {useModal} from 'react-hooks-use-modal';
 import {Avatar} from "@material-ui/core";
 import {AuthContext} from "../Auth/AuthContext";
 import {useFetch} from "../../Hook/useFetch.hook";
@@ -46,49 +46,53 @@ function Sidebar() {
         <div className="sidebar">
 
             <NavLink to={"/home"} className="sidebar__nav">
-            <TwitterIcon className="sidebar__twitterIcon" />
-            <SidebarOption Icon={HomeRoundedIcon} text="Главная"/>
+                <TwitterIcon className="sidebar__twitterIcon"/>
+                <SidebarOption Icon={HomeRoundedIcon} text="Главная"/>
             </NavLink>
 
             <NavLink to={"/explore"} className="sidebar__nav">
-            <SidebarOption Icon={TagRoundedIcon} text="Исследовать"/>
+                <SidebarOption Icon={TagRoundedIcon} text="Исследовать"/>
             </NavLink>
 
             <NavLink to={"/notifications"} className="sidebar__nav">
-            <SidebarOption Icon={NotificationsNoneRoundedIcon} text="Уведомления"/>
+                <SidebarOption Icon={NotificationsNoneRoundedIcon} text="Уведомления"/>
             </NavLink>
 
             <SidebarOption Icon={MailOutlineIcon} text="Сообщения"/>
-            <SidebarOption Icon={BookmarkBorderIcon} text="Закладки"/>
+
+            <NavLink to={"/bookmark"} className="sidebar__nav">
+                <SidebarOption Icon={BookmarkBorderIcon} text="Закладки"/>
+            </NavLink>
+
             <SidebarOption Icon={ListAltIcon} text="Списки"/>
 
             <NavLink to={"/profile"} className="sidebar__nav">
-            <SidebarOption Icon={PermIdentityIcon} text="Профиль"/>
+                <SidebarOption Icon={PermIdentityIcon} text="Профиль"/>
             </NavLink>
 
             <SidebarOption Icon={MoreHorizIcon} text="Ещё"/>
 
             <Button variant="outlined" className="sidebar__twit" fullWidth>
-                        Твитнуть
+                Твитнуть
             </Button>
             <div className="modal">
                 <button onClick={open} className="modal__button">
                     <Avatar src={"https://avatars.githubusercontent.com/u/93857847?v=4"}/>
                     <div className="modal__card">
-                    <h4>{name}</h4>
-                    <p>@lovikbobik</p>
+                        <h4>{name}</h4>
+                        <p>@lovikbobik</p>
                     </div>
                     <MoreHorizIcon/>
                 </button>
                 <Modal>
                     <div className="modal__content">
                         <div className="modal__user">
-                        <h3>{name}</h3>
-                        <p>@lovikbobik</p>
+                            <h3>{name}</h3>
+                            <p>@lovikbobik</p>
                         </div>
                         <div className="modal__navigation">
-                        <Button onClick={logoutHandler} className="modalBtn">Выйти</Button>
-                        <Button href="/registration" className="modalBtn">Новый аккаунт</Button>
+                            <Button onClick={logoutHandler} className="modalBtn">Выйти</Button>
+                            <Button href="/registration" className="modalBtn">Новый аккаунт</Button>
                         </div>
                         <button onClick={close} className="modal__close">CLOSE</button>
                     </div>

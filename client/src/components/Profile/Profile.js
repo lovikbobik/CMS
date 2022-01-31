@@ -41,8 +41,8 @@ function Profile({
     const [name, setName] = useState()
     useEffect(async () => {
         try {
-            const response = await request(`/auth/${account.userId}`, 'POST')
-            setName(response)
+            const response = await request(`/auth/${account.userId}`)
+            setName(response.name)
         } catch (e) {
         }
     }, [setName])

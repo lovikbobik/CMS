@@ -13,5 +13,14 @@ actualRouter.get("/", async (req, res) => {
         })
     }
 })
-
+actualRouter.post("/:id", async (req, res) => {
+    try {
+        const actual = await Actual.findOne({_id: req.body.userId});
+        res.send(actual)
+    } catch (error) {
+        res.status(400).send({
+            message: error.message
+        })
+    }
+})
 module.exports = actualRouter;

@@ -12,8 +12,10 @@ import {NavLink} from "react-router-dom";
 import {AuthContext} from "../Auth/AuthContext";
 import axios from "axios";
 
+
 function Post({post}) {
     const [comments, setComments] = useState([])
+    const {userId} = useContext(AuthContext)
 
     useEffect(() => {
         const getPost = async () => {
@@ -26,10 +28,20 @@ function Post({post}) {
         getPost();
     }, [setComments])
 
+    const addToBookmark = async()=>{
+        try{
+            const postId = post._id
+            await axios.post('/posts/bookmark', {userId, postId})
+
+        }catch (e) {
+
+        }
+    }
+
     return (
         <div className="post">
             <div className="post__avatar">
-                <Avatar src={post.avatar}/>
+                {/*<Avatar src={post.avatar}/>*/}
             </div>
             <div className="post__body">
                 <div className="post_header">
@@ -77,7 +89,7 @@ function Post({post}) {
                         <h4 className={post.isLiked ? "post__red" : "post__default"}>{post.likeCount}</h4>
                     </Button>
 
-                    <Button variant="text" size="small" className="post__chat">
+                    <Button onClick={addToBookmark} variant="text" size="small" className="post__chat">
                         <PublishIcon fontsize="small"/>
                         <h4>{post.shareCount}</h4>
                     </Button>

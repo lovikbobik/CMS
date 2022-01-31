@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Avatar, Button} from "@mui/material";
 import '../../styles/components/Main/Tweet.css';
 import CropOriginalRoundedIcon from '@mui/icons-material/CropOriginalRounded';
@@ -7,11 +7,14 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
 import {useFetch} from "../../Hook/useFetch.hook";
+import {AuthContext} from "../Auth/AuthContext";
 
 function Tweet(){
 
+    const {userId} = useContext(AuthContext)
     const {request} = useFetch()
     const [form, setForm] = useState({
+        userId: userId,
         text: String
     })
 

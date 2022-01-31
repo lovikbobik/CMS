@@ -17,6 +17,7 @@ import ProfileReplies from "./components/Profile/SubItems/ProfileReplies";
 import ProfileMedia from "./components/Profile/SubItems/ProfileMedia";
 import ProfileLikes from "./components/Profile/SubItems/ProfileLikes";
 import TweetItem from "./components/Main/TweetItem";
+import Bookmark from "./components/Bookmark/Bookmark";
 
 function useRoutes(isAuth) {
     if (isAuth) {
@@ -32,6 +33,7 @@ function useRoutes(isAuth) {
                     <Route path="/profile/replies" exact element={<ProfilePage children={<ProfileReplies/>}/>}/>
                     <Route path="/profile/media" exact element={<ProfilePage children={<ProfileMedia/>}/>}/>
                     <Route path="/profile/likes" exact element={<ProfilePage children={<ProfileLikes/>}/>}/>
+                    <Route path="/bookmark" exact element={<Bookmark/>}/>
                 </Routes>
         )
     }
