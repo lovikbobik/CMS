@@ -11,7 +11,10 @@ const PostSchema = new Schema({
     shareCount: {type: Number,  default: 0, required: true},
     likeCount: {type: Number,  default: 0, required: true},
     retweetCount: {type: Number,  default: 0, required: true},
-    isLiked: {type: Boolean, default: false}
+    isLiked: {type: Boolean, default: false},
+
+    comments : [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
+
 })
 
 module.exports = model('Post', PostSchema)

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import '../../styles/components/Post/Post.css';
 import {Avatar} from "@mui/material";
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -9,8 +9,22 @@ import PublishIcon from "@material-ui/icons/Publish";
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import {Button} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
+import {AuthContext} from "../Auth/AuthContext";
+import axios from "axios";
 
 function Post({post}) {
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+        const getPost = async () => {
+            try {
+                const response = await axios(`/posts/${post._id}`)
+                setComments(response.data.comments)
+            } catch (e) {
+            }
+        }
+        getPost();
+    }, [setComments])
 
     return (
         <div className="post">
@@ -48,8 +62,10 @@ function Post({post}) {
                 />
                 <div className="post__footer">
                     <Button variant="text" size="small" className="post__chat">
-                        <ChatBubbleOutlineIcon fontSize="small"/>
-                        <h4>{post.commentCount}</h4>
+                        <NavLink to={`/tweet/${post._id}`} className={'sidebar__nav'}>
+                            <ChatBubbleOutlineIcon fontSize="small"/>
+                        </NavLink>
+                        <h4>{comments.length}</h4>
                     </Button>
 
                     <Button variant="text" size="small" className="post__repeat">
@@ -66,6 +82,7 @@ function Post({post}) {
                         <h4>{post.shareCount}</h4>
                     </Button>
                 </div>
+
             </div>
         </div>
     );
