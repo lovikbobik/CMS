@@ -82,7 +82,7 @@ function Sidebar() {
                     <Avatar src={"https://avatars.githubusercontent.com/u/93857847?v=4"}/>
                     <div className="modal__card">
                         <h4>{name}</h4>
-                        <p>@username</p>
+                        <p>@{name}</p>
                     </div>
                     <MoreHorizIcon/>
                 </button>
@@ -90,7 +90,7 @@ function Sidebar() {
                     <div className="modal__content">
                         <div className="modal__user">
                             <h3>{name}</h3>
-                            <p>@username</p>
+                            <p>@{name}</p>
                         </div>
                         <div className="modal__navigation">
                             <Button onClick={logoutHandler} className="modalBtn">Выйти</Button>

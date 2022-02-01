@@ -41,7 +41,7 @@ function Post({post}) {
     return (
         <div className="post">
             <div className="post__avatar">
-                {/*<Avatar src={post.avatar}/>*/}
+                <Avatar src={post.avatar}/>
             </div>
             <div className="post__body">
                 <div className="post_header">

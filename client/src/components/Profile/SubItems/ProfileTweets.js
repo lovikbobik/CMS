@@ -1,30 +1,25 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import PostDefault from "../../Post/PostDefault";
 import mainPostElements from "../../../Arrays/mainPostElements";
+import {useFetch} from "../../../Hook/useFetch.hook";
+import {AuthContext} from "../../Auth/AuthContext";
+import Post from "../../Post/Post";
 
- function ProfileTweets() {
+function ProfileTweets() {
+    const {request} = useFetch()
+    const {userId} = useContext(AuthContext)
+    const [posts, setPosts] = useState([])
+    useEffect(() => {
+        const posts = async () => {
+            const res = await request(`/auth/${userId}`)
+            setPosts(res.posts)
+        }
+        posts()
+    })
     return (
         <div>
-            {mainPostElements.map((item, index) => {
-                if (item.username === "lovikbobik"){
-                    return(
-                        <PostDefault
-                            name={item.name}
-                            username={item.username}
-                            avatar={item.avatar}
-                            verified={item.verified && true}
-                            date={item.date}
-                            text={item.text}
-                            image={item.image}
-                            likeCount={item.likeCount}
-                            commentCount={item.commentCount}
-                            shareCount={item.shareCount}
-                            retweetCount={item.retweetCount}
-                            isLiked={item.isLiked}
-                            key={index}
-                        />
-                    )
-                }
+            {posts.slice(0).reverse().map((item) => {
+                return (<Post post={item}/>)
             })}
         </div>
     )
