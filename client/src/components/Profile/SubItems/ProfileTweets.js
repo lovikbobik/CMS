@@ -18,9 +18,9 @@ function ProfileTweets() {
     })
     return (
         <div>
-            {posts.slice(0).reverse().map((item) => {
+            {posts.length > 0 ? posts.slice(0).reverse().map((item) => {
                 return (<Post post={item}/>)
-            })}
+            }): <h2 className={"header-tweet"}>Тут будут твои посты</h2>}
         </div>
     )
 }

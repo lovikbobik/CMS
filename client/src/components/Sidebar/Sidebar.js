@@ -33,12 +33,12 @@ function Sidebar() {
 
     const {request} = useFetch()
     const account = useContext(AuthContext)
-    const [name, setName] = useState()
+    const [name, setName] = useState({})
 
     useEffect(() => {
         const getName = async () => {
             const response = await request(`/auth/${account.userId}`)
-            setName(response.name)
+            setName(response)
         }
         getName()
 
@@ -79,18 +79,18 @@ function Sidebar() {
             </Button>
             <div className="modal">
                 <button onClick={open} className="modal__button">
-                    <Avatar src={"https://avatars.githubusercontent.com/u/93857847?v=4"}/>
+                    <Avatar src={name.avatar}/>
                     <div className="modal__card">
-                        <h4>{name}</h4>
-                        <p>@{name}</p>
+                        <h4>{name.name}</h4>
+                        <p>@{name.name}</p>
                     </div>
                     <MoreHorizIcon/>
                 </button>
                 <Modal>
                     <div className="modal__content">
                         <div className="modal__user">
-                            <h3>{name}</h3>
-                            <p>@{name}</p>
+                            <h3>{name.name}</h3>
+                            <p>@{name.name}</p>
                         </div>
                         <div className="modal__navigation">
                             <Button onClick={logoutHandler} className="modalBtn">Выйти</Button>

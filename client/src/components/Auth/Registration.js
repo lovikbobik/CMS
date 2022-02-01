@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Button} from "@material-ui/core";
 import "../../styles/components/Auth/Registration.css"
 import "../../styles/components/Auth/Login.css"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useFetch} from "../../Hook/useFetch.hook";
 
 function RegistrationPage() {
@@ -14,6 +14,7 @@ function RegistrationPage() {
     const [rpassword, setRpassword] = useState({
         repeat_password:''
     })
+    const navigate = useNavigate()
     const {request} = useFetch()
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
@@ -24,8 +25,10 @@ function RegistrationPage() {
 
     const registerHandler = async () => {
         try {
-             if (form.password === rpassword.repeat_password)
+             if (form.password === rpassword.repeat_password) {
                  await request('/auth/register', 'POST', {...form})
+                 navigate("/login")
+             }
         } catch (e) {
         }
     }
@@ -67,11 +70,9 @@ function RegistrationPage() {
             <NavLink to="/login" className="login__question">
                 <p>Уже есть аккаунт?</p>
             </NavLink>
-            <NavLink to="/login"  className="loginButton">
             <Button type="submit"
                     onClick={registerHandler}>
                 Создать</Button>
-            </NavLink>
         </div>
     )
 }

@@ -15,14 +15,9 @@ import {AuthContext} from "../Auth/AuthContext";
 function Profile({
                      tweetCount = profileElements.tweetCount,
                      poster = profileElements.poster,
-                     username = profileElements.username,
-                     verified = profileElements.verified,
-                     text = profileElements.text,
                      location = profileElements.location,
                      link = profileElements.link,
                      date = profileElements.date,
-                     following = profileElements.following,
-                     followers = profileElements.followers,
                      children = <ProfileTweets/>
                  }
 ) {
@@ -72,13 +67,12 @@ function Profile({
             <div className="profile__info">
 
                 <div className="profile__user">
-                    <h2>{name.name} {verified &&
-                    <VerifiedIcon className="profile__verified" fontSize="small"/>}</h2>
-                    <p>{"@" + username}</p>
+                    <h2>{name.name}</h2>
+                    <p>{name.name}</p>
                 </div>
 
                 <div>
-                    <p>{text}</p>
+                    <p>Обычное описание</p>
                 </div>
 
                 <div className="profile_description">
@@ -91,9 +85,9 @@ function Profile({
                 </div>
 
                 <div className="profile__followers">
-                    <span> <b className="profile__black">{following + " "}</b> Кумиров </span>
+                    <span> <b className="profile__black">0</b> Кумиров </span>
                     <span className="follow__dist"> <b
-                        className="profile__black">{followers + " "}</b>Подписчиков</span>
+                        className="profile__black">0</b> Подписчиков</span>
                 </div>
             </div>
             <div className={"tabs"}>

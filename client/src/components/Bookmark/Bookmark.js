@@ -20,15 +20,15 @@ function Bookmark() {
     }, [setPost]);
 
     return (
-        <Layout>
+        <Layout  active={true}>
             <div className="main">
                 <div className="main__header">
                     <h2>Главная </h2>
                     <AutoAwesomeOutlinedIcon className="main__auto"/>
                 </div>
-                {post.slice(0).reverse().map(items => (
+                {post.length > 0 ? post.slice(0).reverse().map(items => (
                     <Post post={items.post}/>
-                ))}
+                )): <h1 className={'header-tweet'}>Здесь пока нет никаких закладок</h1>}
             </div>
         </Layout>
     )

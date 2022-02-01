@@ -1,29 +1,10 @@
-import React, {useContext, useEffect, useState} from "react";
-import PostDefault from "../../Post/PostDefault";
-import mainPostElements from "../../../Arrays/mainPostElements";
-import Post from "../../Post/Post";
-import {useFetch} from "../../../Hook/useFetch.hook";
-import {AuthContext} from "../../Auth/AuthContext";
-
+import React from "react";
 
 function ProfileReplies() {
-    const {request} = useFetch()
-    const {userId} = useContext(AuthContext)
-    const [posts, setPosts] = useState([])
-    useEffect(() => {
-        const posts = async () => {
-            const res = await request(`/auth/${userId}`)
-            setPosts(res.posts)
-        }
-        posts()
-    })
     return (
         <div>
-            {posts.slice(0).reverse().map((item) => {
-                if (item.isLiked) {
-                    return (<Post post={item}/>)
-                }
-            })}
+            <h1 className={"header-tweet"}>Здесь пусто</h1>
+            <h2 className={"header-tweet"}>Тут понравившиеся посты</h2>
         </div>
     )
 }

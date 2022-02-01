@@ -31,7 +31,7 @@ function Tweet(){
         <div className="tweet">
             <form>
                 <div className="tweet__input">
-                    <Avatar src="https://i.ytimg.com/vi/IuBbnJr2RTY/maxresdefault.jpg" />
+                    <Avatar src="https://img2.freepng.ru/20180425/auw/kisspng-master-s-degree-academic-degree-graduate-universit-5ae0f678568f05.7552695615246926003546.jpg" />
                     <input
                         placeholder="Что происходит?"
                         onChange={changeHandler}
