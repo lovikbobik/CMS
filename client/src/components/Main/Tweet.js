@@ -24,7 +24,7 @@ function Tweet(){
 
     const addHandler = async () => {
         await request('/posts', 'POST', {...form});
-        window.location.href = "/home";
+        window.location.href = "/";
     }
 
     return(

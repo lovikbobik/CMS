@@ -13,7 +13,6 @@ import FollowWidgetDetails from "../Widgets/FollowWidgetDetails";
 import {useFetch} from "../../Hook/useFetch.hook";
 import {AuthContext} from "../Auth/AuthContext";
 function Profile({
-                     avatar = profileElements.avatar,
                      tweetCount = profileElements.tweetCount,
                      poster = profileElements.poster,
                      username = profileElements.username,
@@ -38,13 +37,14 @@ function Profile({
         fetchData();
     }, [setUser]);
     const account = useContext(AuthContext)
-    const [name, setName] = useState()
-    useEffect(async () => {
-        try {
+    const [name, setName] = useState({})
+    useEffect(() => {
+        const getName = async () => {
             const response = await request(`/auth/${account.userId}`)
-            setName(response.name)
-        } catch (e) {
+            setName(response)
         }
+        getName()
+
     }, [setName])
     return (
         <div className="profile">
@@ -52,7 +52,7 @@ function Profile({
             <div className="profile__header">
                 <ArrowBackIcon className="profile__icon"/>
                 <div className="profile__headerText">
-                    <h2>{name}</h2>
+                    <h2>{name.name}</h2>
                     <p>{tweetCount + " Твитов"}</p>
                 </div>
             </div>
@@ -64,7 +64,7 @@ function Profile({
 
             <div className="profile__follow">
                 <div>
-                    <Avatar className="profile__avatar" src={avatar}/>
+                    <Avatar className="profile__avatar" src={name.avatar}/>
                 </div>
                 <Button variant="outlined" className="profile__button">Настроить профиль</Button>
             </div>
@@ -72,7 +72,7 @@ function Profile({
             <div className="profile__info">
 
                 <div className="profile__user">
-                    <h2>{name} {verified &&
+                    <h2>{name.name} {verified &&
                     <VerifiedIcon className="profile__verified" fontSize="small"/>}</h2>
                     <p>{"@" + username}</p>
                 </div>

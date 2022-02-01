@@ -24,7 +24,7 @@ function useRoutes(isAuth) {
         return (
                 <Routes>
                     <Route path="/tweet/:id" exact element={<TweetItem/>}/>
-                    <Route path="/home" exact element={<HomePage/>}/>
+                    <Route path="/" exact element={<HomePage/>}/>
                     <Route path="/profile" exact element={<ProfilePage/>}/>
                     <Route path="/user/:username" exact element={<UserPage/>}/>
                     <Route path="/notifications" exact element={<NotificationsPage/>}/>

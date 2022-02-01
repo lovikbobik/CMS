@@ -22,7 +22,7 @@ function Login() {
         try {
             const response = await request('/auth/login', 'POST',{...form})
             userData.login(response.token, response.userId)
-            navigate('/home')
+            navigate('/')
         } catch (e) {
         }
     }

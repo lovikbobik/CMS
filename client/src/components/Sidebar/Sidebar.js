@@ -34,18 +34,20 @@ function Sidebar() {
     const {request} = useFetch()
     const account = useContext(AuthContext)
     const [name, setName] = useState()
-    useEffect(async () => {
-        try {
-            const response = await request(`/auth/${account.userId}`, 'POST')
-            setName(response)
-        } catch (e) {
+
+    useEffect(() => {
+        const getName = async () => {
+            const response = await request(`/auth/${account.userId}`)
+            setName(response.name)
         }
+        getName()
+
     }, [setName])
 
     return (
         <div className="sidebar">
 
-            <NavLink to={"/home"} className="sidebar__nav">
+            <NavLink to={"/"} className="sidebar__nav">
                 <TwitterIcon className="sidebar__twitterIcon"/>
                 <SidebarOption Icon={HomeRoundedIcon} text="Главная"/>
             </NavLink>
@@ -80,7 +82,7 @@ function Sidebar() {
                     <Avatar src={"https://avatars.githubusercontent.com/u/93857847?v=4"}/>
                     <div className="modal__card">
                         <h4>{name}</h4>
-                        <p>@lovikbobik</p>
+                        <p>@username</p>
                     </div>
                     <MoreHorizIcon/>
                 </button>
@@ -88,7 +90,7 @@ function Sidebar() {
                     <div className="modal__content">
                         <div className="modal__user">
                             <h3>{name}</h3>
-                            <p>@lovikbobik</p>
+                            <p>@username</p>
                         </div>
                         <div className="modal__navigation">
                             <Button onClick={logoutHandler} className="modalBtn">Выйти</Button>
