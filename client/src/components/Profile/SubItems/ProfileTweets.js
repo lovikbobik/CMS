@@ -1,6 +1,4 @@
 import React, {useContext, useEffect, useState} from "react";
-import PostDefault from "../../Post/PostDefault";
-import mainPostElements from "../../../Arrays/mainPostElements";
 import {useFetch} from "../../../Hook/useFetch.hook";
 import {AuthContext} from "../../Auth/AuthContext";
 import Post from "../../Post/Post";
@@ -11,7 +9,7 @@ function ProfileTweets() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
         const posts = async () => {
-            const res = await request(`/auth/${userId}`)
+            const res = await request(`https://twitter-ser.herokuapp.com/auth/${userId}`)
             setPosts(res.posts)
         }
         posts()

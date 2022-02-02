@@ -4,7 +4,6 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import PublishIcon from "@material-ui/icons/Publish";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import {Avatar} from "@mui/material";
 
 function Comment({comment}) {
     return (

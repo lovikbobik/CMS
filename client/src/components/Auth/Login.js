@@ -20,7 +20,7 @@ function Login() {
 
     const loginHandler = async () => {
         try {
-            const response = await request('/auth/login', 'POST',{...form})
+            const response = await request('https://twitter-ser.herokuapp.com/auth/login', 'POST',{...form})
             userData.login(response.token, response.userId)
             navigate('/')
         } catch (e) {
@@ -43,9 +43,6 @@ function Login() {
                     name='password'
                     value={form.password}
                     onChange={changeHandler}/>
-            </div>
-            <div>
-                <a href="#" className="login__question">Забыли пароль?</a>
             </div>
             <Button  onClick={loginHandler} type="submit" className="loginButton">Войти</Button>
         </div>
