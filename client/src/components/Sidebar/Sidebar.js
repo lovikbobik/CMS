@@ -35,7 +35,7 @@ function Sidebar() {
     const account = useContext(AuthContext)
     const [name, setName] = useState({})
     const getName = async () => {
-        const response = await request(`https://twitter-ser.herokuapp.com/auth/${account.userId}`)
+        const response = await request(`/auth/${account.userId}`)
         setName(response)
     }
     useEffect(() => getName(), [setName])

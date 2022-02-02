@@ -10,7 +10,7 @@ function Main() {
     const[post,setPost]=useState([])
 
     const fetchData = async () => {
-        const response = await request('https://twitter-ser.herokuapp.com/posts');
+        const response = await request('/posts');
         setPost(response);
     }
 

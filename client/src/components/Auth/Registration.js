@@ -26,7 +26,7 @@ function RegistrationPage() {
     const registerHandler = async () => {
         try {
              if (form.password === rpassword.repeat_password) {
-                 await request('https://twitter-ser.herokuapp.com/auth/register', 'POST', {...form})
+                 await request('/auth/register', 'POST', {...form})
                  navigate("/login")
              }
         } catch (e) {

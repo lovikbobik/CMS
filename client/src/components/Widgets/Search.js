@@ -18,12 +18,12 @@ function Search() {
     const [count, setCount] = useState(0)
     const findHandler = useCallback(async () => {
         try {
-            const res = await request('https://twitter-ser.herokuapp.com/posts/search', 'POST', {...form})
+            const res = await request('/posts/search', 'POST', {...form})
             setPost(res)
             setCount(form.text.length)
         } catch (e) {
         }
-    }, setPost)
+    }, [setPost])
 
     return (
         <div className="search">

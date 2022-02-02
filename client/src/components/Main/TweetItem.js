@@ -24,14 +24,14 @@ function TweetItem() {
 
     const addCommentHandler = async () => {
         try {
-            await axios.put(`https://twitter-ser.herokuapp.com/posts/post/${params.id}/push_comment/${userId}`, {...form})
+            await axios.put(`/posts/post/${params.id}/push_comment/${userId}`, {...form})
         } catch (e) {
         }
     }
 
     const getPost = async () => {
         try {
-            const response = await axios(`https://twitter-ser.herokuapp.com/posts/${params.id}`)
+            const response = await axios(`/posts/${params.id}`)
             setPost(response.data)
             setComments(response.data.comments)
         } catch (e) {

@@ -10,7 +10,7 @@ export default function FollowWidget() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await request('https://twitter-ser.herokuapp.com/users');
+            const response = await request('/users');
             setUser(response);
         };
         fetchData();

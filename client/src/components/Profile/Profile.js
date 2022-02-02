@@ -24,14 +24,15 @@ function Profile({
     const [user, setUser] = useState([])
 
     const fetchData = async () => {
-        const response = await request('https://twitter-ser.herokuapp.com/users');
+        const response = await request('/users');
         setUser(response);
     }
     useEffect(() => fetchData(), [setUser]);
+
     const account = useContext(AuthContext)
     const [name, setName] = useState({})
     const getName = async () => {
-        const response = await request(`https://twitter-ser.herokuapp.com/auth/${account.userId}`)
+        const response = await request(`/auth/${account.userId}`)
         setName(response)
     }
     useEffect(() => getName(), [setName])

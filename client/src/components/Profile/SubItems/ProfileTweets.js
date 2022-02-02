@@ -9,7 +9,7 @@ function ProfileTweets() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
         const posts = async () => {
-            const res = await request(`https://twitter-ser.herokuapp.com/auth/${userId}`)
+            const res = await request(`/auth/${userId}`)
             setPosts(res.posts)
         }
         posts()
