@@ -1,13 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const cors = require("cors");
+const cors = require("cors")
+require('dotenv').config()
 
 const app = express()
 app.use(cors());
 app.use(express.json({extended: true}))
 
-const PORT = 4000
-const mongoUri = "mongodb+srv://lovik:1234qwer@cluster0.iqtby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const PORT = process.env.PORT || 4000
+const DATABASE_CONNECTION = process.env.DB_URL;
+// const mongoUri = "mongodb+srv://lovik:1234qwer@cluster0.iqtby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 app.use('/posts', require('./routes/post.router'))
 app.use('/actual', require('./routes/actual.router'))
@@ -16,7 +18,7 @@ app.use('/auth', require('./routes/auth.router'))
 
 async function start() {
     try {
-        await mongoose.connect(mongoUri, {
+        await mongoose.connect(DATABASE_CONNECTION, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
 
