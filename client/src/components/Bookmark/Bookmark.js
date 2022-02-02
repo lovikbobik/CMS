@@ -12,7 +12,7 @@ function Bookmark() {
     const {userId} = useContext(AuthContext)
 
     const fetchData = async () => {
-        const response = await request('/posts/bookmarks', 'POST', {userId});
+        const response = await request('https://twitter-ser.herokuapp.com/posts/bookmarks', 'POST', {userId});
         setPost(response);
     }
 

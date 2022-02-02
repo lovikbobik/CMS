@@ -23,7 +23,7 @@ function Tweet(){
     }
 
     const addHandler = async () => {
-        await request('/posts', 'POST', {...form});
+        await request('https://twitter-ser.herokuapp.com/posts', 'POST', {...form});
         window.location.href = "/";
     }
 

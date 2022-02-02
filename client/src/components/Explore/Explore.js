@@ -13,7 +13,7 @@ function Explore({recommendation}) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await request('/actual');
+            const response = await request('https://twitter-ser.herokuapp.com/actual');
             setActual(response);
         };
         fetchData();

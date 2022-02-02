@@ -24,7 +24,7 @@ function Profile({
     const [user, setUser] = useState([])
 
     const fetchData = async () => {
-        const response = await request('/users');
+        const response = await request('https://twitter-ser.herokuapp.com/users');
         setUser(response);
     }
     useEffect(() => fetchData(), [setUser]);
@@ -32,7 +32,7 @@ function Profile({
     const account = useContext(AuthContext)
     const [name, setName] = useState({})
     const getName = async () => {
-        const response = await request(`/auth/${account.userId}`)
+        const response = await request(`https://twitter-ser.herokuapp.com/auth/${account.userId}`)
         setName(response)
     }
     useEffect(() => getName(), [setName])
